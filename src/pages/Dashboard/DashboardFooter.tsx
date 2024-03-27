@@ -1,26 +1,55 @@
-import { AppBar, Typography } from "@mui/material";
+import { AppBar, Box, Typography, IconButton } from "@mui/material";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-const DashboardFooter = () => {
+const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
     <AppBar
-      component={"footer"}
       position="fixed"
       sx={{
         backgroundColor: "primary.main",
         top: "auto",
         bottom: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        px: 2,
+        py: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      <Typography pt={2} pb={2} color="white" variant="subtitle1" component="p">
-        {`Made by Himanshu | ${year}`}
-      </Typography>
+      {/* Empty Box to balance the toggle button placement */}
+      <Box sx={{ position: 'absolute', left: 16 }} />
+      
+      {/* Typography component as a flex container */}
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          flexShrink: 0,
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant="subtitle1" color="inherit">
+          Made by Himanshu |
+        </Typography>
+        <IconButton
+          href="https://github.com/himanshuxgit/inTrack"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="inherit"
+        >
+          <GitHubIcon />
+        </IconButton>
+        <Typography variant="subtitle1" color="inherit">
+          | {year}
+        </Typography>
+      </Box>
+
+      {/* Theme Toggle Button */}
+
     </AppBar>
   );
 };
 
-export default DashboardFooter;
+export default Footer;
